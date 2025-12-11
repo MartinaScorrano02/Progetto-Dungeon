@@ -1,5 +1,7 @@
 package gameworld;
 import java.util.Random;
+import gameworld.Room;
+import gamewordl.Position;
 
 public class Dungeon {
     private static final int WIDTH = 100;
@@ -17,7 +19,13 @@ public void generateDungeon(){
     int numberOfRooms=10;
     int numberOfRandomRooms=0;
     while(numberOfRandomRooms<numberOfRooms){
-        
+        int randomRow=random.nextInt(WIDTH);
+        int randomCol=random.nextInt(HEIGHT);
+
+    if(dungeonMap[randomRow][randomCol]==null){
+        Position pos=new Position (randomRow,randomCol);
+        dungeonMap[randomRow][randomCol]=new Room (pos);
+        numberOfRandomRooms++;
 
     }
         }
