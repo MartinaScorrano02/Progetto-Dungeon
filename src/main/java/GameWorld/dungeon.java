@@ -7,10 +7,6 @@ public class Dungeon {
     private Room[][]dungeon;
     private Random random;
 
-<<<<<<< HEAD
-public class dungeon {
-
-
 public Dungeon (int width,int height){
     this.width=width;
     this.height=height;
