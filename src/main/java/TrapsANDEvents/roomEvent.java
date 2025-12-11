@@ -1,4 +1,4 @@
-package Traps&Events;
+package traps&events;
 
 public class roomEvent {
     
