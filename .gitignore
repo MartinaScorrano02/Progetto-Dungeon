@@ -1,0 +1,18 @@
+# Cartelle e file generati da Maven
+/target/
+
+# File di log
+*.log
+
+# File temporanei di Eclipse / IDE
+*.classpath
+*.project
+*.settings/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+
+# Librerie scaricate (opzionale, se usi Maven non serve ignorarle)
+/dependency-reduced-pom.xm
