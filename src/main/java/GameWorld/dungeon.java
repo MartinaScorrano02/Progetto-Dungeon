@@ -1,5 +1,6 @@
 package GameWorld;
 
-public class dungeon {
+public class Dungeon {
+
     
 }
