@@ -14,7 +14,7 @@ public Dungeon(){
     random=new Random();
     generateDungeon();
 }
-}
+
 public void generateDungeon(){
     int numberOfRooms=10;
     int numberOfRandomRooms=0;
@@ -29,7 +29,13 @@ public void generateDungeon(){
 
     }
         }
-
+    }
             
 
-
+public Room getRoom(int row,int col){
+    if(row<0|| row>=WIDTH||col<0||col>=HEIGHT){
+        throw new IndexOutOfBoundsException("Ops attenzione!Sembra che le coordinate inserite non siano valide!!");
+    }
+    return Room[row][col];
+}
+}
