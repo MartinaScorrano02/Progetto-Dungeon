@@ -26,24 +26,51 @@ public Room(int row,int col,String description,Passage north,Passage south,Passa
     items=new ArrayList<>();
     events=new ArrayList<>();
 }
-public boolean addEnemy(Enemy enemy){
-for(Character character:characters){
-    if(character.getName().equals(enemy.getName())){
+public List<Entity> getCharacters(){
+    return characters;
+}
+public List<Item> getItems(){
+    return items;
+}
+public List<RoomEvent> getEvents(){
+    return events;
+}
+
+public boolean addCharacter(Entity e){
+for(Entity entity:characters){
+    if(entity.getName().equals(e.getName())){
         return false;
     }
-    characters.add(enemy);
+}
+characters.add(e);
     return true;
 }
-}
 
-public boolean addKey(Key key){
+public boolean addItem(Item i){
     for(Item item:items){
-        if(item.getName().equals(key.getName())){
+        if(item.getName().equals(i.getName())){
             return false;
         }
-        items.add(key);
     }
+    items.add(i);
+    return true;
 }
 
-
-
+public boolean removeItem(Item i){
+    for(Item item:items){
+        if(item.getName().equals(i.getName())){
+            items.remove(i);
+            return true;
+        }
+    }
+    return false;
+}
+public boolean removeEntity(Entity e){
+    for(Entity entity:characters){
+        if(entity.getName().euqals(e.getName())){
+            characters.remove(e);
+            return true;
+        }
+    }
+    return false;
+}
