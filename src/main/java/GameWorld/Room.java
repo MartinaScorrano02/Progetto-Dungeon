@@ -35,7 +35,6 @@ public List<Item> getItems(){
 public List<RoomEvent> getEvents(){
     return events;
 }
-
 public boolean addCharacter(Entity e){
 for(Entity entity:characters){
     if(entity.getName().equals(e.getName())){
@@ -73,4 +72,5 @@ public boolean removeEntity(Entity e){
         }
     }
     return false;
+}
 }
