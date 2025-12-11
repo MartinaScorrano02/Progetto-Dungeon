@@ -18,15 +18,21 @@ public Dungeon(){
 public void generateDungeon(){
     int numberOfRooms=10;
     int numberOfRandomRooms=0;
-    while(numberOfRandomRooms<numberOfRooms){
+    int attempts=0;
+    int maxAttempts=100;
+    while(numberOfRandomRooms<numberOfRooms && attemps<maxAttemps){
         Position p;
         int randomRow=random.nextInt(WIDTH);
         int randomCol=random.nextInt(HEIGHT);
-        p=new Position(x,y);
+        if(dungeonMap[randomRow][randomCol]==null){
+        p=new Position(randomRow,randomCol);
+        dungeonMap[randomRow][randomCol]=new Room();
         numberOfRandomRooms++;
-
+        }
+        attempts++;
     }
-    throw new RoomaMaxExceededException("Ops attenzione!Sembra che il numero massimo di stanze sia stato raggiunto!!");
+    if(numberOfRandomRooms>numberOfRooms){
+    throw new IllegalStateException("Ops attenzione!Sembra che il numero massimo di stanze sia stato raggiunto!!");
         }
     
 
@@ -34,6 +40,7 @@ public Room getRoom(int row,int col){
     if(row<0|| row>=WIDTH||col<0||col>=HEIGHT){
         throw new IndexOutOfBoundsException("Ops attenzione!Sembra che le coordinate inserite non siano valide!!");
     }
-    return Room[row][col];
+    return dungeonMap[row][col];
+}
 }
 }
