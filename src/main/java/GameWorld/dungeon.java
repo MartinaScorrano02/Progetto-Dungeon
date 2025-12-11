@@ -2,6 +2,7 @@ package gameworld;
 import java.util.Random;
 import gameworld.Room;
 import gamewordl.Position;
+import exception.MaxRoomException;
 
 public class Dungeon {
     private static final int WIDTH = 100;
@@ -15,12 +16,12 @@ public Dungeon(){
     generateDungeon();
 }
 
-public void generateDungeon(){
+public void generateDungeon() trhows MaxRoomException{
     int numberOfRooms=10;
     int numberOfRandomRooms=0;
     int attempts=0;
     int maxAttempts=100;
-    while(numberOfRandomRooms<numberOfRooms && attemps<maxAttemps){
+    while(numberOfRandomRooms<numberOfRooms && attempts<maxAttempts){
         Position p;
         int randomRow=random.nextInt(WIDTH);
         int randomCol=random.nextInt(HEIGHT);
@@ -32,9 +33,9 @@ public void generateDungeon(){
         attempts++;
     }
     if(numberOfRandomRooms>numberOfRooms){
-    throw new IllegalStateException("Ops attenzione!Sembra che il numero massimo di stanze sia stato raggiunto!!");
+    throw new MaxRoomException("Ops attenzione!Sembra che il numero massimo di stanze create sia stato raggiunto!!");
         }
-    
+}
 
 public Room getRoom(int row,int col){
     if(row<0|| row>=WIDTH||col<0||col>=HEIGHT){
@@ -42,5 +43,5 @@ public Room getRoom(int row,int col){
     }
     return dungeonMap[row][col];
 }
-}
+
 }
